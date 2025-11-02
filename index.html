@@ -3,57 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HAI TIARA💫</title>
+  <title>Hai Tiara 💫</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg1: #0f1724; --bg2:#3b0d47;
       --accent:#ff6b9f; --accent-2:#ffd166;
       --text:#fff; --muted:#f3e8ff;
-      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      font-family: 'Poppins', system-ui, sans-serif;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
       min-height:100vh; display:flex; align-items:center; justify-content:center;
-      background:linear-gradient(135deg,var(--bg1),var(--bg2)); color:var(--text);
-      overflow:hidden; padding:1rem;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:var(--text); overflow:hidden; padding:1rem;
+      transition:background 1s ease;
     }
 
-    .screen{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; transition:opacity .5s ease, transform .5s ease}
+    .screen{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; transition:opacity .6s ease, transform .6s ease}
     .hidden{opacity:0; pointer-events:none; transform:scale(.98)}
     h1{font-size:clamp(1.6rem,6vw,3rem)}
     p{color:var(--muted); margin-top:.6rem}
-    .cta{margin-top:1.2rem}
-    .big-btn{background:linear-gradient(90deg,var(--accent),#ff8fb1); color:#20071a; border:none; padding:.9rem 1.8rem; border-radius:999px; font-weight:700; font-size:1.05rem; cursor:pointer; box-shadow:0 8px 30px rgba(255,107,159,.18)}
-    .big-btn:active{transform:translateY(2px)}
+    .cta{margin-top:1.4rem}
+    .big-btn{
+      background:linear-gradient(90deg,var(--accent),#ff8fb1);
+      color:#20071a; border:none; padding:1rem 2rem;
+      border-radius:999px; font-weight:700; font-size:1.1rem;
+      cursor:pointer; box-shadow:0 8px 30px rgba(255,107,159,.25);
+      transition:all .25s ease;
+    }
+    .big-btn:hover{transform:scale(1.05)}
 
     .card{
-      width:100%; max-width:760px; padding:2rem; border-radius:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));
+      width:100%; max-width:720px; padding:2rem; border-radius:20px;
+      background:rgba(255,255,255,0.05);
       box-shadow: 0 20px 60px rgba(2,6,23,0.6);
-      text-align:center; backdrop-filter: blur(6px);
+      text-align:center; backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease;
     }
+    @keyframes fadeIn {from{opacity:0; transform:scale(.97)}to{opacity:1; transform:scale(1)}}
+
     .message{font-size:1.05rem; color:var(--muted); margin-top:.6rem}
     .name{font-weight:800; font-size:1.6rem; margin-top:.6rem}
-
-    .actions{display:flex; gap:1rem; justify-content:center; margin-top:1.2rem; flex-wrap:wrap}
-    .btn{padding:.6rem 1.1rem; border-radius:12px; font-weight:700; cursor:pointer; border:none}
+    .actions{display:flex; gap:1rem; justify-content:center; margin-top:1.3rem; flex-wrap:wrap}
+    .btn{padding:.7rem 1.3rem; border-radius:12px; font-weight:700; cursor:pointer; border:none}
     .yes{background:linear-gradient(90deg,#fff176,#ff6b9f); color:#2b0218}
-    .no{background:transparent; border:2px solid rgba(255,255,255,0.12); color:var(--text)}
-    .no.runaway{position:relative; transition:transform .25s ease}
+    .no{background:transparent; border:2px solid rgba(255,255,255,0.15); color:var(--text); transition:transform .25s ease}
 
     .hearts{position:fixed; inset:0; pointer-events:none; overflow:hidden}
-    .heart{position:absolute; font-size:22px; will-change:transform,opacity; animation:fall linear; opacity:.95}
+    .heart{position:absolute; font-size:22px; animation:fall linear; opacity:.95}
     @keyframes fall{0%{transform:translateY(-10vh) rotate(0deg); opacity:1}100%{transform:translateY(110vh) rotate(360deg); opacity:0}}
-
-    #confetti{position:fixed; inset:0; pointer-events:none}
     footer{position:fixed; bottom:10px; width:100%; text-align:center; color:rgba(255,255,255,0.6); font-size:.85rem}
 
     @media (max-width:640px){
       .card{padding:1.25rem; border-radius:14px}
       .name{font-size:1.3rem}
       .actions{gap:.6rem}
-      .big-btn{padding:.8rem 1.2rem}
+      .big-btn{padding:.9rem 1.3rem}
     }
   </style>
 </head>
@@ -65,8 +72,8 @@
   <!-- START -->
   <section class="screen" id="start-screen">
     <div>
-      <h1>TIARA SAKILA💫</h1>
-      <p>Sentuh atau klik untuk membuka pesan</p>
+      <h1>TIARA SAKILA 💫</h1>
+      <p>Sentuh atau klik untuk buka pesannya 💌</p>
       <div class="cta"><button class="big-btn" id="start-btn">Mulai ❤️</button></div>
     </div>
   </section>
@@ -74,22 +81,19 @@
   <!-- MAIN -->
   <main class="screen hidden" id="main-screen">
     <div class="card">
-      <div class="name" id="recipient">Untukmu TIARA SAKILA💖</div>
-      <p class="message" id="message">Hai, ini halaman kecil buat kamu yang spesial banget, disini aku mau ngomong kalo aku udah suka kamu dari lama, dan aku pengen kita jadi lebih dari temen, apakah kamu mau??.</p>
+      <div class="name">Untukmu, Tiara Syakila 💖</div>
+      <p class="message">Hai, aku cuma mau bilang... aku udah suka sama kamu dari lama. Kamu tuh bikin hari-hariku lebih hidup. Jadi, mau gak kamu jadi alasan aku senyum tiap hari? 😳💘</p>
       <div class="actions">
-        <button class="btn yes" id="yes-btn">Iyaaa 💖</button>
-        <button class="btn no" id="no-btn">Nggak</button>
+        <button class="btn yes" id="yes-btn">Iyaa 💖</button>
+        <button class="btn no" id="no-btn">Nggak 😜</button>
       </div>
     </div>
   </main>
 
-  <footer>© <span id="year"></span> — Dibuat dengan hati 💌</footer>
+  <footer>© <span id="year"></span> — Dibuat dengan hati buat Tiara 💞</footer>
 
-  <!-- pastikan file mp3 ini ada di folder yang sama -->
-  <audio id="bg-music" loop preload="none">
-   <audio id="bg-music" loop preload="auto" src="about_you_1975_tiara.mp3"></audio>
-
-  </audio>
+  <!-- Musik -->
+  <audio id="bg-music" loop preload="auto" src="about you 1975 tiara.mp3"></audio>
 
   <script>
     const qs = s => document.querySelector(s);
@@ -101,32 +105,30 @@
     const heartsLayer = qs('#hearts');
     const confettiCanvas = qs('#confetti');
     const music = qs('#bg-music');
-    const yearEl = qs('#year'); yearEl.textContent = new Date().getFullYear();
+    const yearEl = qs('#year');
+    yearEl.textContent = new Date().getFullYear();
 
-    // fix autoplay issue: user interaction required
     let musicAllowed = false;
-    function playMusicOnceAllowed() {
+    function playMusic() {
       if (!musicAllowed) return;
       music.volume = 0.6;
-      music.play().catch(() => {
-        console.warn("Autoplay masih diblokir");
-      });
+      music.play().catch(err => console.warn("Autoplay diblokir:", err));
     }
 
     startBtn.addEventListener('click', ()=>{
       musicAllowed = true;
-      playMusicOnceAllowed();
+      playMusic();
       startScreen.classList.add('hidden');
       mainScreen.classList.remove('hidden');
-      spawnHearts(12);
+      spawnHearts(15);
       playConfetti(2000);
     });
 
     yesBtn.addEventListener('click', ()=>{
       yesBtn.disabled = true;
-      qs('#message').textContent = "Selamat! Kamu berhasil bikin dia senyum 💞";
-      playConfetti(3000);
-      spawnHearts(40);
+      qs('.message').textContent = "Aaaa 😳💞 makasih udah nerima aku, kamu terbaik!";
+      playConfetti(4000);
+      spawnHearts(50);
     });
 
     noBtn.addEventListener('mouseover', ()=>{
@@ -142,11 +144,11 @@
     function spawnHearts(n){
       for(let i=0;i<n;i++){
         const el = document.createElement('div');
-        el.className='heart'; el.textContent = '❤';
-        const size = 12 + Math.random()*36; el.style.fontSize = size+'px';
+        el.className='heart';
+        el.textContent = '❤';
         el.style.left = (Math.random()*100)+'%';
         el.style.animationDuration = (4 + Math.random()*6)+'s';
-        el.style.opacity = (0.6 + Math.random()*0.4);
+        el.style.fontSize = (12 + Math.random()*36)+'px';
         heartsLayer.appendChild(el);
         setTimeout(()=>el.remove(), 11000);
       }
@@ -154,33 +156,26 @@
 
     function playConfetti(duration=1500){
       const canvas = confettiCanvas; const ctx = canvas.getContext('2d');
-      let w = canvas.width = innerWidth; let h = canvas.height = innerHeight;
+      canvas.width = innerWidth; canvas.height = innerHeight;
       const pieces = [];
       const colors = ['#FFD166','#EF476F','#06D6A0','#118AB2','#FDFFB6'];
       for(let i=0;i<120;i++){
-        pieces.push({x:Math.random()*w, y:Math.random()*-h, vx:(Math.random()-0.5)*6, vy:2+Math.random()*6, r:Math.random()*8+2, c: colors[Math.floor(Math.random()*colors.length)], rot:Math.random()*360});
+        pieces.push({x:Math.random()*canvas.width,y:Math.random()*-canvas.height,vx:(Math.random()-0.5)*6,vy:2+Math.random()*6,r:Math.random()*8+2,c:colors[Math.floor(Math.random()*colors.length)],rot:Math.random()*360});
       }
-      let start = null;
+      const start = performance.now();
       function frame(ts){
-        if(!start) start = ts; const elapsed = ts-start;
-        ctx.clearRect(0,0,w,h);
+        const elapsed = ts-start;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
         for(const p of pieces){
           p.x += p.vx; p.y += p.vy; p.rot += p.vx*2;
           ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
           ctx.fillStyle = p.c; ctx.fillRect(-p.r/2, -p.r/2, p.r, p.r*0.6);
           ctx.restore();
         }
-        if(elapsed < duration) requestAnimationFrame(frame); else ctx.clearRect(0,0,w,h);
+        if(elapsed < duration) requestAnimationFrame(frame);
       }
       requestAnimationFrame(frame);
     }
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='Enter' && !mainScreen.classList.contains('hidden')) yesBtn.click();
-      if(e.key==='Enter' && !startScreen.classList.contains('hidden')) startBtn.click();
-    });
   </script>
 </body>
 </html>
-
-
